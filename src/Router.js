@@ -1,15 +1,14 @@
-import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminLayout from "./AdminLayout";
+import { useRoutes } from "react-router-dom";
 import HeaderLayout from "./HeaderLayout";
+import Admin from "./Admin";
 import Home from "./Home";
 import Service from "./Service";
-import About from "./About";
-import AdminLayout from "./AdminLayout";
-import Admin from "./Admin";
 import Users from "./Users";
+import About from "./About";
 
-function App() {
-  const router = createBrowserRouter([
+export default function Router() {
+  let element = useRoutes([
     {
       path: "/",
       element: <HeaderLayout />,
@@ -27,12 +26,5 @@ function App() {
       ],
     },
   ]);
-
-  return (
-    <div className="App">
-      <h1>createBrowserRouter example</h1>
-      <RouterProvider router={router} />
-    </div>
-  );
+  return element;
 }
-export default App;
